@@ -2,6 +2,8 @@ from django.db import models
 
 class Company(models.Model):
     name = models.CharField(max_length=225)
+    number = models.CharField(max_length=225,null=True)
+
 
     def __str__(self):
         return self.name
@@ -14,7 +16,7 @@ class Visitors(models.Model):
 
     
 class Schedule(models.Model):
-    company = models.ForeignKey(Company, on_delete=models.CASCADE)
+    company = models.ForeignKey(Company, on_delete=models.CASCADE,null=True)
     purpose_title = models.CharField(max_length=100)
 
     def __str__(self):
